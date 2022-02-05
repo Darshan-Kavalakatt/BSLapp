@@ -1,9 +1,54 @@
 {% load static %}
 
-<input type="text" id="letters" name=""><br><br>
-<script src = "{% static 'change.js'%}"></script>
-
-<img id="letter" src="http://127.0.0.1:8000/api/letters/?letters=b" >
-
-<button type="button" onclick=sign(letter,letters.value)>Click Me!</button>
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>signly</title>
+    <link rel="stylesheet" href="{% static 'bulma.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'home.css' %}" />
+    <script src="{% static 'change.js'%}"></script>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div>
+          <h1 id="signly" class="title has-text-centered">signly</h1>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="box">
+          <form>
+            <div class="columns">
+              <div class="column is-four-fifths">
+                <input
+                  type="text"
+                  id="letters"
+                  name=""
+                  class="input"
+                /><br /><br />
+                <button
+                  type="button"
+                  onclick="sign(letter,letters.value)"
+                  class="button"
+                >
+                  Click Me!
+                </button>
+              </div>
+              <div class="column">
+                <img
+                  id="letter"
+                  src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image-300x225.png"
+                  class="image"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
