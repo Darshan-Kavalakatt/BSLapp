@@ -1,7 +1,10 @@
+from functools import reduce
 import os
 from django.http import HttpResponse
 from django.shortcuts import render
+import urllib
 from signly.settings import BASE_DIR
+import requests
 path = "/image"
 #from templates import *
 
@@ -20,3 +23,17 @@ def letters_list(request):
         print(e)
         context = {'message': 'Letter not found ' + file_path}
     return render(request, 'message.html', context)
+
+
+def get_video_link(request):
+    word = request.GET.get('word').upper()
+    url_parts = [
+        'https://bslsignbank.ucl.ac.uk/media/bsl-video/', word[0:2] + '/', word + '.mp4']
+    url = reduce(urllib.parse.urljoin, url_parts)
+    req = requests.get(url)
+    if (req.status_code == 200):
+        return HttpResponse(url)
+    else:
+        response = HttpResponse()
+        response.status_code = 404
+        return response
