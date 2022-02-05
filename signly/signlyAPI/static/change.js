@@ -21,6 +21,7 @@ async function checkAPI(word){
 
 async function wordsplitter(image,video,letters){
     var words = letters.split(" ");
+
     for(let i = 0; i< words.length; i++){
         if(checkAPI(words[i])==false){
             for(let y = 0;y<words[i].length;y++){
@@ -28,10 +29,11 @@ async function wordsplitter(image,video,letters){
                 image.src = "http://127.0.0.1:8000/api/letters/?letters=" + words[i][y]
             }
         }else{
-            video.src = checkAPI(words[i]);
+            video.src = await checkAPI(words[i]);
+            await sleep(4000);
         }
     }
-    await sleep(1500);
+    
     
 
 

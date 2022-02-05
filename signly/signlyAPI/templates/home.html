@@ -4,9 +4,7 @@
 <script src = "{% static 'change.js'%}"></script>
 
 <img id="letter" src="http://127.0.0.1:8000/api/letters/?letters=b" >
-<video controls autoplay muted>
-    <source src="https://bslsignbank.ucl.ac.uk/media/bsl-video/BO/BOAT.mp4" id= "word" type="video/mp4">
-</video>
+<video controls autoplay muted source src="https://bslsignbank.ucl.ac.uk/media/bsl-video/BO/BOAT.mp4" id= "word" type="video/mp4"></video>
 
-<button type="button" onclick=checkAPI(letters.value)>Click Me!</button>
+<button type="button" onclick=wordsplitter(letter,word,letters.value)>Click Me!</button>
 
