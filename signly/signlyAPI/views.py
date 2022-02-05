@@ -1,4 +1,7 @@
+import os
+from django.http import HttpResponse
 from django.shortcuts import render
+from signly.settings import BASE_DIR
 path = "/image"
 #from templates import *
 
@@ -6,9 +9,14 @@ path = "/image"
 
 
 def letters_list(request):
-    param = request.GET.get('letters')
-    print(param)
-    # get an instance of model which has an ImageField
-    model_image = path + "/" + (param) + ".jpg"
-    context = {'image': model_image}
-    return render(request, 'some_html.html', context)
+    letter = request.GET.get('letters')
+    context = {}
+    file_path = os.path.join(
+        BASE_DIR, 'images', os.path.basename(letter) + '.jpg')
+    try:
+        with open(file_path, 'rb') as fingerspell_image:
+            return HttpResponse(fingerspell_image.read(), content_type='image/jpeg')
+    except Exception as e:
+        print(e)
+        context = {'message': 'Letter not found ' + file_path}
+    return render(request, 'message.html', context)
