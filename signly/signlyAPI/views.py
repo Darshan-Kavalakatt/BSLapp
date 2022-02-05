@@ -4,12 +4,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import urllib
 from signly.settings import BASE_DIR
-<<<<<<< HEAD
 import requests
-=======
 from django.http import HttpResponseRedirect
 from django import forms
->>>>>>> 40eace156b500c3675dc04fa3d65b2a6c76ba36e
 path = "/image"
 #from templates import *
 
@@ -30,7 +27,6 @@ def letters_list(request):
     return render(request, 'message.html', context)
 
 
-<<<<<<< HEAD
 def get_video_link(request):
     word = request.GET.get('word').upper()
     url_parts = [
@@ -43,10 +39,11 @@ def get_video_link(request):
         response = HttpResponse()
         response.status_code = 404
         return response
-=======
+
 
 class NameForm(forms.Form):
     your_letter = forms.CharField(label='Your Letter', max_length=1)
+
 
 def home_page(request):
     # if this is a POST request we need to process the form data
@@ -64,4 +61,3 @@ def home_page(request):
     else:
         form = NameForm()
     return render(request, 'home.html', {'form': form})
->>>>>>> 40eace156b500c3675dc04fa3d65b2a6c76ba36e
