@@ -19,8 +19,9 @@ from signlyAPI import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home_page),
+    path('', views.home_page),
     re_path(r'^api/letters/$', views.letters_list),
-    path('api/videolink', views.get_video_link)
+    path('api/videolink', views.get_video_link),
+    path('learn', views.learn)
     #re_path(r'^api/students/([0-9])$', views.students_detail),
 ]

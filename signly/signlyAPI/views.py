@@ -61,3 +61,7 @@ def home_page(request):
     else:
         form = NameForm()
     return render(request, 'home.html', {'form': form})
+
+
+def learn(request):
+    return render(request, 'learn.html')
