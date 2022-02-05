@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'signly.apps.SignlyConfig',
-    'signly'
+    'signlyAPI'
 ]
 
 MIDDLEWARE = [
