@@ -23,10 +23,11 @@ async function wordsplitter(image,video,letters){
     var words = letters.split(" ");
 
     for(let i = 0; i< words.length; i++){
-        if(checkAPI(words[i])==false){
+        if(await checkAPI(words[i])==false){
             for(let y = 0;y<words[i].length;y++){
-                await sleep(500);
+                
                 image.src = "http://127.0.0.1:8000/api/letters/?letters=" + words[i][y]
+                await sleep(500);
             }
         }else{
             video.src = await checkAPI(words[i]);
