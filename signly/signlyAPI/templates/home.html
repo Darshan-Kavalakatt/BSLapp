@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,14 +11,14 @@
     <script src="{% static 'change.js'%}"></script>
   </head>
   <body>
-    <section class="section">
+    <section class="section py-2">
       <div class="container">
         <div>
           <h1 id="signly" class="title has-text-centered signly">signly</h1>
         </div>
       </div>
     </section>
-    <section class="section">
+    <section class="section pt-0">
       <div class="container">
         <div class="box">
           <form>
@@ -32,12 +31,22 @@
                   class="input"
                 /><br /><br />
                 <button
-                  type="button"
-                  onclick="sign(letter,letters.value)"
                   class="button"
+                  type="button"
+                  onclick="wordsplitter(letter,word,letters.value)"
                 >
                   Click Me!
                 </button>
+                <video
+                  style="max-height: 40vh"
+                  controls
+                  autoplay
+                  muted
+                  source
+                  src="https://bslsignbank.ucl.ac.uk/media/bsl-video/BO/BOAT.mp4"
+                  id="word"
+                  type="video/mp4"
+                ></video>
               </div>
               <div class="column">
                 <img
