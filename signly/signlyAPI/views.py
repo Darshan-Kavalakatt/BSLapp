@@ -26,7 +26,7 @@ def letters_list(request):
 
 
 class NameForm(forms.Form):
-    your_letter = forms.CharField(label='Your Letter', max_length=1)
+    letters = forms.CharField(label='Your Letter', max_length=1)
 
 def home_page(request):
     # if this is a POST request we need to process the form data
