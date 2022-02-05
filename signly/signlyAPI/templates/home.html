@@ -1,5 +1,9 @@
-<form action="/api/letters/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+{% load static %}
+
+<input type="text" id="letters" name=""><br><br>
+<script src = "{% static 'change.js'%}"></script>
+
+<img id="letter" src="http://127.0.0.1:8000/api/letters/?letters=b" >
+
+<button type="button" onclick=sign(letter,letters.value)>Click Me!</button>
+

@@ -42,7 +42,7 @@ def get_video_link(request):
 
 
 class NameForm(forms.Form):
-    your_letter = forms.CharField(label='Your Letter', max_length=1)
+    letters = forms.CharField(label='Your Letter', max_length=1)
 
 
 def home_page(request):
