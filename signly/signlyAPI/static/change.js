@@ -22,8 +22,10 @@ async function checkAPI(word){
 async function wordsplitter(image,video,letters){
     url = await checkAPI(letters);
     if(url) {
-        video.src = url
+        video.src = url;
         video.style.display = "block"; 
+        await sleep(4000);
+        video.style.display = "none"; 
         return;
     }
     
