@@ -33,7 +33,7 @@ async function wordsplitter(image,video,letters){
             for(let y = 0;y<words[i].length;y++){
                 image.src = "http://127.0.0.1:8000/api/letters/?letters=" + words[i][y]
                 image.style.display = "block"; 
-                await sleep(500);
+                await sleep(750);
                 image.style.display = "none";
             }
         }else{
