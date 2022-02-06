@@ -24,15 +24,21 @@
           </div>
         </div>
         <div class="box">
-          <video
-            class="img"
-            src="https://bslsignbank.ucl.ac.uk/media/bsl-video/BO/BOAT.mp4"
-            muted
-            autoplay
-            loop
-          >
-            test
-          </video>
+          {% for phrase in urls %}
+          <div class="columns">
+            <div class="column is-full is-flex is-justify-content-center">
+              <div class="card">
+                <div class="card-image">
+                <video class="img" src="{{phrase.url}}" muted autoplay loop></video>
+                </div>
+                <div class="card-content">
+                <p class="has-text-centered has-text-weight-semibold is-size-3 p-0">{{ phrase.phrase }}</p>
+                </div>
+                </img>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
     </section>
