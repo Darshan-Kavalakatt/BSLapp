@@ -29,17 +29,23 @@ def letters_list(request):
 
 def get_video_link(request):
     text = request.GET.get('word')
-    # Check long phrase
-    if (url := check_phrase_link(text)):
-        return HttpResponse(url)
-
-    # Check word
-    if (url := check_signbank(text.upper())):
+    if (url := check_all_links(text)):
         return HttpResponse(url)
     else:
         response = HttpResponse()
         response.status_code = 404
         return response
+
+
+def check_all_links(text):
+    if (url := check_phrase_link(text)):
+        return url
+
+    # Check word
+    if (url := check_signbank(text.upper())):
+        return url
+
+    return False
 
 
 def check_signbank(word):
@@ -105,10 +111,15 @@ def home_page(request):
 
 
 def learn(request):
+    content = ['hello', 'how are you', 'good afternoon']
+    urls = []
+    for phrase in content:
+        if url := check_all_links(phrase):
+            urls.append({'url': url, 'phrase': phrase})
     context = {
-        'content': ['hello', 'how are you', 'good afternoon']
+        'urls': urls
     }
-    return render(request, 'learn.html')
+    return render(request, 'learn.html', context)
 
 def quiz(request):
     return render(request, 'quiz.html')
