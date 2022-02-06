@@ -30,7 +30,7 @@ def letters_list(request):
 def get_video_link(request):
     text = request.GET.get('word')
     # Check long phrase
-    if (url := check_signstation(text)):
+    if (url := check_phrase_link(text)):
         return HttpResponse(url)
 
     # Check word
@@ -53,15 +53,33 @@ def check_signbank(word):
         return False
 
 
-def check_signstation(phrase):
+def check_phrase_link(phrase):
+    if url := check_hardcoded(phrase):
+        return url
     url_parts = [
         'https://media.signbsl.com/videos/bsl/signstation/', phrase.lower().replace(' ', '-') + '.mp4']
     url = reduce(urllib.parse.urljoin, url_parts)
     req = requests.get(url)
     if (req.status_code == 200 or req.status_code == 304):
         return url
-    else:
-        return False
+
+    url_parts = [
+        'https://media.signbsl.com/videos/bsl/deafway/mp4/', phrase.lower() + '.mp4']
+    url = reduce(urllib.parse.urljoin, url_parts)
+    req = requests.get(url)
+    if (req.status_code == 200 or req.status_code == 304):
+        return url
+
+    if (phrase.lower() == 'how are you'):
+        return 'https://media.signbsl.com/videos/bsl/signstation/101-06-76.mp4'
+
+    return False
+
+
+def check_hardcoded(phrase):
+    if(phrase.lower() == 'how are you'):
+        return 'https://media.signbsl.com/videos/bsl/signstation/101-06-76.mp4'
+    return False
 
 
 class NameForm(forms.Form):
