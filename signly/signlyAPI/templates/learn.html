@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>signly</title>
+    <link rel="stylesheet" href="{% static 'bulma.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+    <script src="{% static 'change.js'%}"></script>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div class="box">
+          <div class="columns is-vcentered">
+            <div class="column">
+              <h1 class="title">Introduction to BSL</h1>
+            </div>
+            <div class="column">
+              <h1 class="title has-text-right signly">signly</h1>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <video
+            class="img"
+            src="https://bslsignbank.ucl.ac.uk/media/bsl-video/BO/BOAT.mp4"
+            muted
+            autoplay
+            loop
+          >
+            test
+          </video>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
