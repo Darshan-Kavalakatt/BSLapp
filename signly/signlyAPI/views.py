@@ -120,3 +120,17 @@ def learn(request):
         'urls': urls
     }
     return render(request, 'learn.html', context)
+
+def quiz(request):
+    return render(request, 'quiz.html')
+
+def click(request):
+    a = request.GET.get('a')
+    b = request.GET.get('b')
+    score=0
+    if a=="boat":
+        score+=1
+    if b=="tree":
+        score+=1
+    print(score)
+    return HttpResponse(score)
