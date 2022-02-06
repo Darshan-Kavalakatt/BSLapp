@@ -22,6 +22,8 @@ urlpatterns = [
     path('', views.home_page),
     re_path(r'^api/letters/$', views.letters_list),
     path('api/videolink', views.get_video_link),
-    path('learn', views.learn)
+    path('learn', views.learn),
+    path('quiz', views.quiz),
+    path('submitclick',views.click)
     #re_path(r'^api/students/([0-9])$', views.students_detail),
 ]

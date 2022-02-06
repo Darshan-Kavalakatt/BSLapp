@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>signly</title>
+    <link rel="stylesheet" href="{% static 'bulma.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+    <script src="{% static 'quiz.js'%}"></script>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div class="box">
+          <div class="columns is-vcentered">
+            <div class="column">
+              <h1 class="title">Introduction to BSL</h1>
+            </div>
+            <div class="column">
+              <h1 class="title has-text-right signly">signly</h1>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <video
+            class="img"
+            src="https://bslsignbank.ucl.ac.uk/media/bsl-video/BO/BOAT.mp4"
+            muted
+            autoplay
+            loop
+          >
+            test
+          </video>
+        </div>
+      </div>
+      <fieldset id="answer1">
+        <legend>Please select one of the following</legend>
+          <input type="radio" name="answer1" id="tree" value="tree" /><label for="tree">A. Tree</label><br />
+        <input type="radio" name="answer1" id="horse" value="horse"  /><label for="horse">B. Horse</label><br />
+        <input type="radio" name="answer1" id="cow" value="cow" /><label for="cow">C. Cow</label><br />
+        <input type="radio" name="answer1" id="boat" value="boat" /><label for="boat">D. Boat</label><br />
+      </fieldset>
+      <div class="box">
+        <video
+          class="img"
+          src="https://bslsignbank.ucl.ac.uk/media/bsl-video/TR/TREE.mp4"
+          muted
+          autoplay
+          loop
+        >
+          test
+        </video>
+      </div>
+    </div>
+    <fieldset id="answer2">
+      <legend>Please select one of the following</legend>
+        <input type="radio" name="answer2" id="whale" value="whale" /><label for="whale">A. Whale</label><br />
+      <input type="radio" name="answer2" id="man" value="man"  /><label for="man">B. Man</label><br />
+      <input type="radio" name="answer2" id="sorry" value="sorry" /><label for="sorry">C. Sorry</label><br />
+      <input type="radio" name="answer2" id="tree" value="tree" /><label for="tree">D. Tree</label><br />
+    </fieldset>
+  
+      <button id="button" onclick=checkAnswer()>Submit
+      </button><br>
+    </section>
+  </body>
+</html>
