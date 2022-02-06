@@ -78,7 +78,7 @@ def check_phrase_link(phrase):
 
     if (phrase.lower() == 'how are you'):
         return 'https://media.signbsl.com/videos/bsl/signstation/101-06-76.mp4'
-
+    video.style.display = "none"; 
     return False
 
 
