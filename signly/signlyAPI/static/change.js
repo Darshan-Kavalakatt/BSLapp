@@ -20,8 +20,14 @@ async function checkAPI(word){
 }
 
 async function wordsplitter(image,video,letters){
+    url = await checkAPI(letters);
+    if(url) {
+        video.src = url
+        video.style.display = "block"; 
+        return;
+    }
+    
     var words = letters.split(" ");
-
     for(let i = 0; i< words.length; i++){
         if(await checkAPI(words[i])==false){
             for(let y = 0;y<words[i].length;y++){

@@ -1,4 +1,5 @@
 from functools import reduce
+from operator import truediv
 import os
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -8,7 +9,7 @@ import requests
 from django.http import HttpResponseRedirect
 from django import forms
 path = "/image"
-#from templates import *
+# from templates import *
 
 # Create your views here.
 
@@ -28,17 +29,40 @@ def letters_list(request):
 
 
 def get_video_link(request):
-    word = request.GET.get('word').upper()
-    url_parts = [
-        'https://bslsignbank.ucl.ac.uk/media/bsl-video/', word[0:2] + '/', word + '.mp4']
-    url = reduce(urllib.parse.urljoin, url_parts)
-    req = requests.get(url)
-    if (req.status_code == 200):
+    text = request.GET.get('word')
+    # Check long phrase
+    if (url := check_signstation(text)):
+        return HttpResponse(url)
+
+    # Check word
+    if (url := check_signbank(text.upper())):
         return HttpResponse(url)
     else:
         response = HttpResponse()
         response.status_code = 404
         return response
+
+
+def check_signbank(word):
+    url_parts = [
+        'https://bslsignbank.ucl.ac.uk/media/bsl-video/', word[0:2] + '/', word + '.mp4']
+    url = reduce(urllib.parse.urljoin, url_parts)
+    req = requests.get(url)
+    if (req.status_code == 200):
+        return url
+    else:
+        return False
+
+
+def check_signstation(phrase):
+    url_parts = [
+        'https://media.signbsl.com/videos/bsl/signstation/', phrase.lower().replace(' ', '-') + '.mp4']
+    url = reduce(urllib.parse.urljoin, url_parts)
+    req = requests.get(url)
+    if (req.status_code == 200 or req.status_code == 304):
+        return url
+    else:
+        return False
 
 
 class NameForm(forms.Form):
@@ -64,4 +88,7 @@ def home_page(request):
 
 
 def learn(request):
+    context = {
+        'content': ['hello', 'how are you', 'good afternoon']
+    }
     return render(request, 'learn.html')
