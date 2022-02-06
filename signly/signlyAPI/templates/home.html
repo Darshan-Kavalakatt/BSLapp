@@ -22,21 +22,34 @@
       <div class="container">
         <div class="box">
           <form>
+            <a class="button mb-2" href="/learn"> Learn BSL </a>
             <div class="columns">
-              <div class="column is-four-fifths">
+              <div
+                class="column is-full is-flex is-justify-content-center pb-1"
+              >
                 <input
                   type="text"
                   id="letters"
                   name=""
                   class="input"
                 /><br /><br />
+              </div>
+            </div>
+            <div class="columns">
+              <div
+                class="column is-full is-flex is-justify-content-center pt-1"
+              >
                 <button
-                  class="button"
+                  class="button is-fullwidth is-warning"
                   type="button"
                   onclick="wordsplitter(letter,word,letters.value)"
                 >
-                  Click Me!
+                  Generate
                 </button>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-full is-flex is-justify-content-center">
                 <video
                   style="max-height: 40vh; display: none"
                   controls
@@ -46,17 +59,13 @@
                   src="https://bslsignbank.ucl.ac.uk/media/bsl-video/BO/BOAT.mp4"
                   id="word"
                   type="video/mp4"
-                  
                 ></video>
                 <img
                   id="letter"
                   src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image-300x225.png"
                   class="image"
-                  style = "width: 15vw; height: 20vh; display:none;"
+                  style="max-width: 100%; height: 30vh; display: none"
                 />
-              </div>
-              <div class="column">
-                
               </div>
             </div>
           </form>
