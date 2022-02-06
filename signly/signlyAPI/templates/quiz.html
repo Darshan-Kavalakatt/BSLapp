@@ -24,46 +24,66 @@
           </div>
         </div>
         <div class="box">
-          <video
-            class="img"
-            src="https://bslsignbank.ucl.ac.uk/media/bsl-video/BO/BOAT.mp4"
-            muted
-            autoplay
-            loop
-          >
-            test
-          </video>
+          <div class="columns">
+            <div class="column is-full is-flex is-justify-content-center">
+              <div class="card">
+                <div class="card-image">
+                  <video
+                  class="img"
+                  src="https://bslsignbank.ucl.ac.uk/media/bsl-video/BO/BOAT.mp4"
+                  muted
+                  autoplay
+                  loop
+                >
+                  test
+                </video>
+                </div>
+                <div class="card-content is-justify-content-center is-flex">
+                  <fieldset id="answer1">
+                    <p>Please select one of the following</p>
+                    <input type="radio" name="answer1" id="tree" value="tree" class="mx-1"/><label for="tree">Tree</label>
+                    <input type="radio" name="answer1" id="horse" value="horse" class="mx-1" /><label for="horse">Horse</label>
+                    <input type="radio" name="answer1" id="cow" value="cow" class="mx-1"/><label for="cow">Cow</label>
+                    <input type="radio" name="answer1" id="boat" value="boat" class="mx-1"/><label for="boat">Boat</label>
+                  </fieldset>
+                </div>
+                </img>
+              </div>
+            </div>
+          </div>
+      <div class="columns">
+        <div class="column is-full is-flex is-justify-content-center">
+          <div class="card">
+            <div class="card-image">
+              <video
+              class="img"
+              src="https://bslsignbank.ucl.ac.uk/media/bsl-video/TR/TREE.mp4"
+              muted
+              autoplay
+              loop
+            >
+              test
+                </video>
+                  </div>
+                    <div class="card-content is-justify-content-center is-flex">
+                      <fieldset id="answer2">
+                        <p>Please select one of the following</p>
+                        <input type="radio" name="answer2" id="whale" value="whale" class="mx-1"/><label for="whale">Whale</label>
+                        <input type="radio" name="answer2" id="man" value="man" class="mx-1" /><label for="man">Man</label>
+                        <input type="radio" name="answer2" id="sorry" value="sorry" class="mx-1"/><label for="sorry">Sorry</label>
+                        <input type="radio" name="answer2" id="tree" value="tree" class="mx-1"/><label for="tree">Tree</label>
+                      </fieldset>
+                    </div>
+                  </img>
+                </div>
+              </div>
+            </div>
+          <div class="column is-justify-content-center is-flex">
+            <button class="button is-large is-success is-fullwidth" id="button" onclick=checkAnswer()>Submit
+            </button>
+          </div>
         </div>
       </div>
-      <fieldset id="answer1">
-        <legend>Please select one of the following</legend>
-          <input type="radio" name="answer1" id="tree" value="tree" /><label for="tree">A. Tree</label><br />
-        <input type="radio" name="answer1" id="horse" value="horse"  /><label for="horse">B. Horse</label><br />
-        <input type="radio" name="answer1" id="cow" value="cow" /><label for="cow">C. Cow</label><br />
-        <input type="radio" name="answer1" id="boat" value="boat" /><label for="boat">D. Boat</label><br />
-      </fieldset>
-      <div class="box">
-        <video
-          class="img"
-          src="https://bslsignbank.ucl.ac.uk/media/bsl-video/TR/TREE.mp4"
-          muted
-          autoplay
-          loop
-        >
-          test
-        </video>
-      </div>
-    </div>
-    <fieldset id="answer2">
-      <legend>Please select one of the following</legend>
-        <input type="radio" name="answer2" id="whale" value="whale" /><label for="whale">A. Whale</label><br />
-      <input type="radio" name="answer2" id="man" value="man"  /><label for="man">B. Man</label><br />
-      <input type="radio" name="answer2" id="sorry" value="sorry" /><label for="sorry">C. Sorry</label><br />
-      <input type="radio" name="answer2" id="tree" value="tree" /><label for="tree">D. Tree</label><br />
-    </fieldset>
-  
-      <button id="button" onclick=checkAnswer()>Submit
-      </button><br>
     </section>
   </body>
 </html>
