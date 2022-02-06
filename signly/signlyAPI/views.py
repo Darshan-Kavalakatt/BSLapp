@@ -8,7 +8,6 @@ import requests
 from django.http import HttpResponseRedirect
 from django import forms
 path = "/image"
-#from templates import *
 
 # Create your views here.
 
