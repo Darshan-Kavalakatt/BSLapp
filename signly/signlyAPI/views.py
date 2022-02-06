@@ -127,10 +127,16 @@ def quiz(request):
 def click(request):
     a = request.GET.get('a')
     b = request.GET.get('b')
+    c = request.GET.get('c')
+    d = request.GET.get('d')
     score=0
     if a=="boat":
         score+=1
     if b=="tree":
+        score+=1
+    if c=="swing":
+        score+=1
+    if d=="kick":
         score+=1
     print(score)
     return HttpResponse(score)
