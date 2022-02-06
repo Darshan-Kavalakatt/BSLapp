@@ -20,17 +20,27 @@ async function checkAPI(word){
 }
 
 async function wordsplitter(image,video,letters){
+    url = await checkAPI(letters);
+    if(url) {
+        video.src = url
+        video.style.display = "block"; 
+        return;
+    }
+    
     var words = letters.split(" ");
-
     for(let i = 0; i< words.length; i++){
-        if(checkAPI(words[i])==false){
+        if(await checkAPI(words[i])==false){
             for(let y = 0;y<words[i].length;y++){
-                await sleep(500);
                 image.src = "http://127.0.0.1:8000/api/letters/?letters=" + words[i][y]
+                image.style.display = "block"; 
+                await sleep(500);
+                image.style.display = "none";
             }
         }else{
+            video.style.display = "block"; 
             video.src = await checkAPI(words[i]);
             await sleep(4000);
+            video.style.display = "none"; 
         }
     }
     
