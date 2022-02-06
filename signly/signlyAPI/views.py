@@ -132,11 +132,11 @@ def click(request):
     score=0
     if a=="boat":
         score+=1
-    if b=="tree":
+    if b=="good-afternoon":
         score+=1
-    if c=="swing":
+    if c=="howareyou":
         score+=1
-    if d=="kick":
+    if d=="hello":
         score+=1
     print(score)
     return HttpResponse(score)
