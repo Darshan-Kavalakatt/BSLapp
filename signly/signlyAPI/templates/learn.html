@@ -25,11 +25,11 @@
         </div>
         <div class="box">
           {% for phrase in urls %}
-          <div class="columns">
+          <div class="columns is-hidden trainingcard">
             <div class="column is-full is-flex is-justify-content-center">
               <div class="card">
                 <div class="card-image">
-                <video class="img" src="{{phrase.url}}" muted autoplay loop></video>
+                <video style="max-height: 40vh;" class="img" src="{{phrase.url}}" muted autoplay loop></video>
                 </div>
                 <div class="card-content">
                 <p class="has-text-centered has-text-weight-semibold is-size-3 p-0">{{ phrase.phrase }}</p>
@@ -39,8 +39,19 @@
             </div>
           </div>
           {% endfor %}
+          <div class="columns">
+            <div class="column is-full is-flex is-justify-content-center">
+              <button class="button large is-link" style="min-width: 30vh" onclick=getNext(this)>
+                Next
+              </button>
+              <a id="quizbutton" href="/quiz" class="button is-large is-fullwidth is-link is-hidden">
+                Take the Quiz
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </body>
+  <script src="{% static 'learn.js'%}"></script>
 </html>
